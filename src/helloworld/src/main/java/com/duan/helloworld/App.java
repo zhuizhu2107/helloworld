@@ -9,7 +9,7 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class App {
-	
+	//测试修改了
 	private static Scanner scanner;
 	
 	public static void main(String[] args) {
