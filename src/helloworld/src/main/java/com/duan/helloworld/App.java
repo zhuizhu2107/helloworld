@@ -1,4 +1,4 @@
-package com.phoenixgo.helloworld;
+package com.duan.helloworld;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,8 +9,9 @@ import java.util.Properties;
 import java.util.Scanner;
 
 public class App {
+	
 	private static Scanner scanner;
-
+	
 	public static void main(String[] args) {
 		Properties prop = new Properties();
 		try {
