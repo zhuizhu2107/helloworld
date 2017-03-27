@@ -3,6 +3,17 @@
 <web-app>
 	<display-name>我的测试应用</display-name>
 
+	<!-- 配置打印日志情况 -->
+	<context-param>
+		<param-name>log4jRefreshInterval</param-name>
+		<param-value>10000</param-value>
+	</context-param>
+	<listener>
+		<listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+	</listener>
+
+
+
 	<welcome-file-list>
 		<welcome-file>index.jsp</welcome-file>
 	</welcome-file-list>
