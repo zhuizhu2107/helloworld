@@ -1,14 +1,25 @@
-
- 
- 
- 
- 	<!-- 引入Hibernate的支持和配置内容 -->
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" lazy-init="false">
         <!-- 注入datasource，给sessionfactoryBean内setdatasource提供数据源 -->
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
-    </bean>	
+        
+        <property name="packagesToScan">
+        	<value>com.duan.bean</value>
+        </property>
+        
+		<property name="hibernateProperties">
+		   <props>
+			    <prop key="hibernate.dialect">${hibernate.dialect}</prop>
+			    <prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+			    <prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+			    <prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+		   </props>
+        </property>
+    </bean>
+    
+
+  
  
+	
  
        <!-- 开启二级缓存 -->  
       <property name="hibernate.cache.use_second_level_cache">true</property> 

@@ -35,6 +35,14 @@
 		  
 	</bean>
 
+
+    <!-- 引入Hibernate的支持和配置内容 -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" lazy-init="false">
+        <!-- 注入datasource，给sessionfactoryBean内setdatasource提供数据源 -->
+        <property name="dataSource" ref="dataSource" />
+        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+    </bean>
+	 	
 	 	
 	<!--使Spring支持自动检测组件，
 	   1、@Service用于标注业务层组件 
