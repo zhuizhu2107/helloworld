@@ -11,6 +11,24 @@
                http://www.springframework.org/schema/aop
                http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                ">
+
+	<!-- 定义配置文件位置 -->
+	<bean id="propertyConfigurer"  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
+		<property name="location" value="classpath:jdbc.properties"/> 
+	</bean>    
+
+	<!-- 定义数据源配置内容 -->
+	<bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource"  destroy-method="close">
+			  <property name="driverClassName"><value>${jdbc.driver}</value></property> 
+              <property name="url"><value>${jdbc.url}</value></property>
+              <property name="username"><value>${jdbc.username}</value></property> 
+              <property name="password"><value>${jdbc.password}</value></property>  
+	</bean>
+	
+	<!-- 定义jdbcTemplate Bean -->
+	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+		<property name="dataSource" ref="dataSource"></property>
+	</bean>
 	
 	<!--使Spring支持自动检测组件，
 	   1、@Service用于标注业务层组件 
@@ -21,7 +39,6 @@
 	<context:component-scan base-package="com.duan.bean"></context:component-scan>
 	<context:component-scan base-package="com.duan.dao"></context:component-scan>
 	<context:component-scan base-package="com.duan.service"></context:component-scan>
-	<context:component-scan base-package="com.duan.controller"></context:component-scan>
 	
 	<!-- 测试路径配置 -->
 	<context:component-scan base-package="com.duan.test.service"></context:component-scan>
