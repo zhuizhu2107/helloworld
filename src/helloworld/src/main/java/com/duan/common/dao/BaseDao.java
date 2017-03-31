@@ -2,7 +2,7 @@ package com.duan.common.dao;
 
 import java.util.List;
 
-public interface BaseDao<T> {
+public abstract interface BaseDao<T> {
 	/**
 	 * 添加类方法(保存实体)
 	 */
