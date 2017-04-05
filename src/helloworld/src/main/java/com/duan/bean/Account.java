@@ -2,10 +2,21 @@ package com.duan.bean;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+
+
 /**
  * 如果是“JdbcTemplate”实现存储的话，这个类只能写和和数据库有关的字段，其他的一概不能写
  * @author Administrator
  */
+@Entity
+@Table(name="TEST_ACCOUNT",schema="citicsutil")
 public class Account {
 	private Long accCode;// 主键
 	private String accName;// 名称
@@ -15,6 +26,8 @@ public class Account {
 	private Date accLoginTime;// 登陆时间
 	private String accType;// 账号类型
 
+	@Id
+	@Column(name="ACC_CODE",nullable=false)
 	public Long getAccCode() {
 		return accCode;
 	}
@@ -23,6 +36,7 @@ public class Account {
 		this.accCode = accCode;
 	}
 
+	@Column(name="ACC_NAME",length=64)
 	public String getAccName() {
 		return accName;
 	}
@@ -31,6 +45,7 @@ public class Account {
 		this.accName = accName;
 	}
 
+	@Column(name="ACC_REMARK",length=64)
 	public String getAccRemark() {
 		return accRemark;
 	}
@@ -39,6 +54,7 @@ public class Account {
 		this.accRemark = accRemark;
 	}
 
+	@Column(name="ACC_STATE",length=64)
 	public String getAccState() {
 		return accState;
 	}
@@ -47,6 +63,8 @@ public class Account {
 		this.accState = accState;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="ACC_CREAT_TIME")
 	public Date getAccCreatTime() {
 		return accCreatTime;
 	}
@@ -55,6 +73,8 @@ public class Account {
 		this.accCreatTime = accCreatTime;
 	}
 
+	@Temporal(TemporalType.TIMESTAMP)
+	@Column(name="ACC_LOGIN_TIME")
 	public Date getAccLoginTime() {
 		return accLoginTime;
 	}
@@ -63,6 +83,7 @@ public class Account {
 		this.accLoginTime = accLoginTime;
 	}
 
+	@Column(name="ACC_TYPE",length=64)
 	public String getAccType() {
 		return accType;
 	}

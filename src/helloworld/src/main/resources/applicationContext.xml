@@ -12,6 +12,16 @@
                http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                ">
 
+	<!--使Spring支持自动检测组件，
+	   1、@Service用于标注业务层组件 
+       2、@Controller用于标注控制层组件(如struts中的action) 
+       3、@Repository用于标注数据访问组件，即DAO组件. 
+       4、@Component泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。
+      -->	
+	<context:annotation-config />
+	<context:component-scan base-package="com.duan.dao"></context:component-scan>
+	<context:component-scan base-package="com.duan.service"></context:component-scan>
+
 	<!-- 定义配置文件位置 -->
 	<bean id="propertyConfigurer"  class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"> 
 		<property name="location" value="classpath:jdbc.properties"/> 
@@ -40,18 +50,80 @@
     <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" lazy-init="false">
         <!-- 注入datasource，给sessionfactoryBean内setdatasource提供数据源 -->
         <property name="dataSource" ref="dataSource" />
-        <property name="configLocation" value="classpath:hibernate.cfg.xml"></property>
+        <property name="packagesToScan" >
+            <list>
+                <value>com.duan.bean</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <props>
+            	<!-- 设置数据库方言 -->
+                <prop key="dialect">org.hibernate.dialect.Oracle10gDialect</prop>
+                <!-- 是否在控制台显示sql -->
+                <prop key="hibernate.show_sql">true</prop>
+                <!-- 是否格式化sql，优化显示 -->
+                <prop key="hibernate.format_sql">true</prop>
+                <!-- 设置自动创建|更新|验证数据库表结构 -->
+                <prop key="hibernate.hbm2ddl.auto">none</prop>
+                <!-- 是否开启二级缓存 -->
+                <prop key="hibernate.cache.use_second_level_cache">false</prop>
+                <!-- 是否开启查询缓存 -->
+                <prop key="hibernate.cache.use_query_cache">false</prop>
+                <!-- 数据库批量查询最大数 -->
+                <prop key="hibernate.jdbc.fetch_size">50</prop>
+                <!-- 数据库批量更新、添加、删除操作最大数 -->
+                <prop key="hibernate.jdbc.batch_size">50</prop>
+                <!-- 是否自动提交事务 ,在hibernate4 的currentSession模式下该配置不起作用-->
+                <prop key="hibernate.connection.autocommit">true</prop>
+                <!-- 指定hibernate在何时释放JDBC连接 -->
+                <prop key="hibernate.connection.release_mode">auto</prop>                
+                <!-- 创建session方式 hibernate4.x 的方式 -->
+                <prop key="hibernate.current_session_context_class">org.springframework.orm.hibernate4.SpringSessionContext</prop>
+                <!-- javax.persistence.validation.mode默认情况下是auto的，就是说如果不设置的话它是会自动去你的classpath下面找一个bean-validation**包 ,所以把它设置为none即可 -->
+                <prop key="javax.persistence.validation.mode">none</prop>                
+            </props>
+        </property>
     </bean>
-	 	
-	 	
-	<!--使Spring支持自动检测组件，
-	   1、@Service用于标注业务层组件 
-       2、@Controller用于标注控制层组件(如struts中的action) 
-       3、@Repository用于标注数据访问组件，即DAO组件. 
-       4、@Component泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。
-      -->
-	<context:component-scan base-package="com.duan.bean"></context:component-scan>
-	<context:component-scan base-package="com.duan.dao"></context:component-scan>
-	<context:component-scan base-package="com.duan.service"></context:component-scan>
+	
+    <!-- 定义事务管理 -->
+    <bean id="transactionManager"  class="org.springframework.orm.hibernate4.HibernateTransactionManager">
+        <property name="sessionFactory" ref="sessionFactory" />
+    </bean>	
+
+    <tx:advice id="txAdvice"  transaction-manager="transactionManager">
+        <tx:attributes>
+            <!-- 事务执行方式
+                REQUIRED：指定当前方法必需在事务环境中运行，
+                如果当前有事务环境就加入当前正在执行的事务环境，
+                如果当前没有事务，就新建一个事务。
+                这是默认值。 
+             -->
+             <tx:method name="save*" propagation="REQUIRED" />
+             
+            <tx:method name="create*" propagation="REQUIRED" />
+            <tx:method name="add*" propagation="REQUIRED" />
+            <tx:method name="update*" propagation="REQUIRED" />
+            <tx:method name="remove*" propagation="REQUIRED" />
+            <tx:method name="del*" propagation="REQUIRED" />
+            <tx:method name="import*" propagation="REQUIRED" />
+            <!-- 
+                指定当前方法以非事务方式执行操作，如果当前存在事务，就把当前事务挂起，等我以非事务的状态运行完，再继续原来的事务。 
+                查询定义即可
+                read-only="true"  表示只读
+             -->
+            <tx:method name="*"  propagation="NOT_SUPPORTED" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!-- 定义切面，在 * tdxy.*.service.*ServiceImpl.*(..) 中执行有关的hibernate session的事务操作
+		    |第一个 * —— 通配 随便率性返回值类型| 
+			|第二个 * —— 通配包com.evan.crm.service下的随便率性class| 
+			|第三个 * —— 通配包com.evan.crm.service下的随便率性class的随便率性办法| 
+			|第四个 .. —— 通配 办法可以有0个或多个参数
+     -->
+    <aop:config expose-proxy="true">
+        <aop:pointcut id="serviceOperation"  expression="execution(* com.duan.service.*.*(..))" />
+        <aop:advisor advice-ref="txAdvice"    pointcut-ref="serviceOperation" />
+    </aop:config>
 	
 </beans>

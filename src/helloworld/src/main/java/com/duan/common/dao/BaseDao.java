@@ -1,12 +1,13 @@
 package com.duan.common.dao;
 
+import java.io.Serializable;
 import java.util.List;
 
 public abstract interface BaseDao<T> {
 	/**
 	 * 添加类方法(保存实体)
 	 */
-	public void save(T t);
+	public Serializable save(T t);
 	
 	/**
 	 * 添加类方法(保存实体集合)

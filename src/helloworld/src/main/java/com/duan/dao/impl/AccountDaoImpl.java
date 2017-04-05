@@ -13,7 +13,6 @@ public class AccountDaoImpl extends BaseDaoHibernateImpl<Account> implements Acc
 
 	@Override
 	public void save(List<Account> t) {
-		// TODO Auto-generated method stub
 		
 	}
 
@@ -52,5 +51,6 @@ public class AccountDaoImpl extends BaseDaoHibernateImpl<Account> implements Acc
 		// TODO Auto-generated method stub
 		
 	}
+
 
 }
