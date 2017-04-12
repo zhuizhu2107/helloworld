@@ -24,7 +24,27 @@
     <filter-mapping>  
         <filter-name>characterEncodingFilter</filter-name>  
         <url-pattern>/*</url-pattern>  
-    </filter-mapping> 
+    </filter-mapping>
+    
+    <!-- 自定义拦截器 -->
+     <filter>  
+        <filter-name>myFilter</filter-name>  
+        <filter-class>com.duan.filter.MyFilter</filter-class>  
+    </filter>  
+    <filter-mapping>  
+        <filter-name>myFilter</filter-name>  
+        <url-pattern>/*</url-pattern>  
+    </filter-mapping>
+    
+	 <!-- 应用上下文监听控制器 -->
+    <listener>  
+        <listener-class>com.duan.listener.MyServletContextListener</listener-class>  
+    </listener>	
+	 
+	 <!-- 会话监听控制器 -->
+    <listener>  
+        <listener-class>com.duan.listener.MySessionListener</listener-class>  
+    </listener>     
 
    <!--1、部署applicationContext的xml文件-->  
     <!--如果在web.xml中不写任何参数配置信息，默认的路径是"/WEB-INF/applicationContext.xml，  
@@ -85,11 +105,21 @@
 	<filter-mapping>
 		<filter-name>hibernateFilter</filter-name>
 		<url-pattern>*.do</url-pattern>
-	</filter-mapping>	 
+	</filter-mapping>
+	
+	<!-- 测试servlet -->
+    <servlet>
+        <servlet-name>helloServlet</servlet-name>
+        <servlet-class>com.duan.test.web.HelloServlet</servlet-class>
+    </servlet>
+	<servlet-mapping>
+        <servlet-name>helloServlet</servlet-name>
+        <url-pattern>/hello.action</url-pattern>
+	 </servlet-mapping>
 
 	<!-- 欢迎首页内容信息 -->
 	<welcome-file-list>
-		<welcome-file>index.jsp</welcome-file>
+		<welcome-file>login.jsp</welcome-file>
 	</welcome-file-list>
 	
 	<!-- 网络会话超时 -->

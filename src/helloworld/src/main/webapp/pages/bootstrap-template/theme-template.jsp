@@ -8,26 +8,21 @@
     <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../images/icons/index.ico">
+    <link rel="icon" href="${ctx}images/icons/index.ico">
     
     <title>Theme Template for Bootstrap</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../../cs/bootstrap/bootstrap-3.3.7/bootstrap.min.css" rel="stylesheet">
+    <link href="${ctx}cs/bootstrap/bootstrap-3.3.7/bootstrap.min.css" rel="stylesheet">
     
     <!-- Bootstrap theme -->
-    <link href="../../cs/bootstrap/bootstrap-3.3.7/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="${ctx}cs/bootstrap/bootstrap-3.3.7/bootstrap-theme.min.css" rel="stylesheet">
     
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="../../cs/bootstrap/bootstrap-3.3.7/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="${ctx}cs/bootstrap/bootstrap-3.3.7/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
 	<!-- Custom styles for this template -->
-	<link href="../../cs/bootstrap/bootstrap-3.3.7/theme-template.css" rel="stylesheet">	
-
-    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-	<script type="text/javascript" src="../../js/bootstrap/bootstrap-3.3.7/ie-emulation-modes-warning.js"></script>
-
+	<link href="${ctx}cs/bootstrap/bootstrap-3.3.7/theme-template.css" rel="stylesheet">	
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -626,10 +621,10 @@
     
 
     <!-- Placed at the end of the document so the pages load faster -->
-    <script type="text/javascript" src="../../js/jquery/jquery-3.0.0/jquery-3.0.0.min.js"></script>
-    <script type="text/javascript" src="../../js/bootstrap/bootstrap-3.3.7/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../js/bootstrap/bootstrap-3.3.7/docs.min.js"></script>
+    <script type="text/javascript" src="${ctx}js/jquery/jquery-3.0.0/jquery-3.0.0.min.js"></script>
+    <script type="text/javascript" src="${ctx}js/bootstrap/bootstrap-3.3.7/bootstrap.min.js"></script>
+    <script type="text/javascript" src="${ctx}js/bootstrap/bootstrap-3.3.7/docs.min.js"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script type="text/javascript" src="../../js/bootstrap/bootstrap-3.3.7/ie10-viewport-bug-workaround.js"></script>
+    <script type="text/javascript" src="${ctx}js/bootstrap/bootstrap-3.3.7/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

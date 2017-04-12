@@ -1,11 +1,11 @@
 package com.duan.service;
 
 import com.duan.bean.Account;
+import com.duan.service.common.BaseService;
 
-public interface AccountService {
-	/**
-	 * 添加类方法(保存实体)
-	 */
-	public void save(Account account);
+/**
+ * 账户表Service服务管理类
+ */
+public interface AccountService extends BaseService<Account>{
 	
 }

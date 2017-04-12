@@ -7,12 +7,12 @@ public abstract interface BaseDao<T> {
 	/**
 	 * 添加类方法(保存实体)
 	 */
-	public Serializable save(T t);
+	public Serializable saveEntity(T t);
 	
 	/**
 	 * 添加类方法(保存实体集合)
 	 */
-	public void save(List<T> t);
+	public int saveEntityList(List<T> list);
 	
 	
 	/**
@@ -28,8 +28,37 @@ public abstract interface BaseDao<T> {
 	/**
 	 * 查询类方法
 	 */
-	public void get();
-	public void find();
+	public T getEntityById(Serializable id);
+	
+	/**
+	 * 查询类方法
+	 * 单属性查询HQL语句
+	 */
+	public T getEntityByHqlProperty(String column,String value);
+	
+	/**
+	 * 查询类方法
+	 * 单属性查询SQL语句
+	 */	
+	public T getEntityBySqlProperty(String tableName,String colName,String colValue);
+	
+	/**
+	 * 查询类方法
+	 * 多属性查询HQL语句
+	 */
+	public T getEntityByHqlWhere(String sqlWhere,Object[] values, org.hibernate.type.Type[] types);
+	
+	/**
+	 * 查询类方法
+	 * 多属性查询SQL语句
+	 */
+	public T getEntityBySqlWhere(String tableName,String sqlWhere,Object[] values, org.hibernate.type.Type[] types);
+	
+	
+	public T load(Serializable id);
+	
+	public List<T> find(String column,String value);
+	public List<T> find(String sqlWhere);
 	
 	/**
 	 * 统计类方法

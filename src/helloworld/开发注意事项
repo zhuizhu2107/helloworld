@@ -1,0 +1,81 @@
+一、使用日志规范
+1、必须在业务层使用
+2、使用方式，引入如下代码即可
+private Log logger = LogFactory.getLog(this.getClass());
+在具体方法中就可以写入日志
+logger.info("");
+logger.debug("");
+logger.warn("");
+logger.error("");
+
+
+二、获取serletContext的几种方式
+spring 获取方式：
+        WebApplicationContext webApplicationContext=ContextLoader.getCurrentWebApplicationContext();
+        ServletContext context=webApplicationContext.getServletContext();
+
+ 普通servlet的获取方式：
+ 		this.getServletContext()    
+ 		
+Filter中的获取方式： 		
+ 		ServletContext context = config.getServletContext();
+ 		
+ 		
+ H5模板之家
+ 		http://www.cssmoban.com/
+ 		
+ 		
+jquery.validate.js用法参考 		
+ 		http://www.jb51.net/article/85701.htm
+ 		
+ jquery版本下载网址		
+ 		http://www.jq22.com/jquery-info122
+ 		
+ 		
+三、如果要换数据库用户的话，必须修改实体中的 schema="citicsutil" 为对应的值才可以 	
+
+
+四、hibernate4 hql查询参考
+		http://www.cnblogs.com/xiaoluo501395377/p/3376256.html	
+		
+		
+
+五、实体查询样例
+		1、
+		User user_db=userService.getEntityById("0001");
+			
+		2、HQL/SQL
+		User user_db2=userService.getEntityByHqlProperty("userName", "admin");
+		System.out.println(user_db2);
+		
+		User user_db2=userService.getEntityBySqlProperty("TEST_SYS_USER", "USER_NAME", "admin");
+		System.out.println(user_db2);		
+		
+		
+		3、HQL/SQL
+		String sqlWhere="and userName=? and password=? ";
+		Object[] values=new Object[]{user.getUserName(),user.getPassword()};
+		Type[] types=new Type[]{new StringType(),new StringType()};
+		User user_db3=userService.getEntityByHqlWhere(sqlWhere, values, types);
+		System.out.println(user_db3);
+		
+		String sqlWhere="and USER_NAME=? and PASSWORD=? ";
+		Object[] values=new Object[]{user.getUserName(),user.getPassword()};
+		Type[] types=new Type[]{new StringType(),new StringType()};
+		User user_db=userService.getEntityBySqlWhere("TEST_SYS_USER", sqlWhere,values,types);		
+		
+	
+六、事务的限制性
+	1、事务面相接口编程
+	2、事务只有在具体业务类中进行实现了才会生效（简单override   supper.method 即可）
+
+		
+七、事务配置相关
+	1、任意公共方法的执行：execution(public * *(..))
+	2、任何一个以“set”开始的方法的执行：execution(* set*(..))
+	3、AccountService 接口的任意方法的执行：execution(* com.xyz.service.AccountService.*(..))
+	4、定义在service包里的任意方法的执行：execution(* com.xyz.service.*.*(..))
+	5、定义在service包和所有子包里的任意类的任意方法的执行：execution(* com.xyz.service..*.*(..))
+	6、定义在pointcutexp包和所有子包里的JoinPointObjP2类的任意方法的执行：execution(* com.test.spring.aop.pointcutexp..JoinPointObjP2.*(..))")
+	
+	

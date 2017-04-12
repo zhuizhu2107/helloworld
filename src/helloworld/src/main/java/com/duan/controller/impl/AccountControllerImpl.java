@@ -30,7 +30,7 @@ public class AccountControllerImpl implements AccountController{
 		Date date=new Date();
 		account.setAccCreatTime(date);
 		account.setAccLoginTime(date);
-		accountService.save(account);
+		accountService.saveEntity(account);
 		
 		map.put("success", "true"); 
 		return map;

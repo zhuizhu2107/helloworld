@@ -1,4 +1,18 @@
+private final Logger logger = LoggerFactory.getLogger(xxx.class);
+
+
+private Log logger = LogFactory.getLog(this.getClass());
+在具体方法中就可以写入日志
+logger.info("");
+logger.debug("");
+logger.warn("");
+logger.error("");
 
 
 
-	      
+当服务启动过程中，控制台输出“要进山了，准备好布袋子”
+当点击一下“给红薯”的链接时，控制台会输出“得到第x个红薯”
+当点击一下“给钱”的链接时，控制台输出“什么时候有过钱啊，滚回家去！
+
+
+org.apache.catalina.session.StandardSessionFacade@118c75c9

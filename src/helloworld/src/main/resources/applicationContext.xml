@@ -12,6 +12,9 @@
                http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
                ">
 
+	<!-- 测试bean -->
+	<bean id="helloWorld" class="com.duan.test.service.HelloWorldImpl"></bean>
+
 	<!--使Spring支持自动检测组件，
 	   1、@Service用于标注业务层组件 
        2、@Controller用于标注控制层组件(如struts中的action) 
@@ -58,6 +61,11 @@
             </list>
         </property>
     </bean>
+
+	<!-- db工具类，进行数据源管理 -->
+	<bean id="dBUtils" class="com.duan.common.tool.DBUtils">
+		<property name="sessionFactory" ref="sessionFactory"></property>
+	</bean>
 	
 	<!-- aop工具类，进行切面编程 -->
 	<bean id="aopUtil" class="com.duan.aop.AopUtil"></bean>
@@ -99,7 +107,7 @@
 			|第四个 .. —— 通配 办法可以有0个或多个参数
      -->
     <aop:config expose-proxy="true">
-        <aop:pointcut id="serviceOperation"  expression="execution(* com.duan.service.*.*(..))" />
+        <aop:pointcut id="serviceOperation"  expression="execution(* com.duan.service..*.*(..))" />
         <aop:advisor advice-ref="txAdvice"    pointcut-ref="serviceOperation"  order="1"/>
         <aop:aspect	id="duanAspect" ref="aopUtil" order="2">
         	<aop:before method="aopBegin" pointcut-ref="serviceOperation"/>
@@ -107,5 +115,4 @@
         </aop:aspect>        
     </aop:config>
 
-	
 </beans>

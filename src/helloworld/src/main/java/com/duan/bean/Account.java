@@ -13,7 +13,7 @@ import javax.persistence.TemporalType;
 
 /**
  * 如果是“JdbcTemplate”实现存储的话，这个类只能写和和数据库有关的字段，其他的一概不能写
- * @author Administrator
+ * @author 段大平
  */
 @Entity
 @Table(name="TEST_ACCOUNT",schema="citicsutil")

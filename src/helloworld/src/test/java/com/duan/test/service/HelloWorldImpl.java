@@ -2,9 +2,6 @@ package com.duan.test.service;
 
 import java.util.Date;
 
-import org.springframework.stereotype.Component;
-
-@Component
 public class HelloWorldImpl implements HelloWorld {
 
 	private String msg;

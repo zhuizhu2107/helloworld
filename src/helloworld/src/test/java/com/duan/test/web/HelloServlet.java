@@ -3,7 +3,6 @@ package com.duan.test.web;
 import java.io.IOException;
 
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,7 +15,6 @@ import com.duan.test.service.HelloWorld;
 /**
  * Servlet implementation class HelloServlet
  */
-@WebServlet(name="HelloServlet",urlPatterns={"/hello.action"})
 public class HelloServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
@@ -36,6 +34,8 @@ public class HelloServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		//使用webapplicationcontextutils这个工具类可以很方便的获取ApplicationContext,只需要传入servletContext
         ApplicationContext applicationContext = WebApplicationContextUtils.getRequiredWebApplicationContext(this.getServletContext());
+        
+        System.out.println("================"+request.getSession()+"===================");
         
         helloWorld = applicationContext.getBean(HelloWorld.class);
         String sayHi = helloWorld.sayHi();
