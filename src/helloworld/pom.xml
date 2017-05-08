@@ -162,6 +162,19 @@
 		    <artifactId>hibernate-core</artifactId>
 		    <version>4.3.11.Final</version>
 		</dependency>
+		
+		<!-- JSTL相关标签包的引入 -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>1.2</version>
+		</dependency>
+		<dependency>
+			<groupId>taglibs</groupId>
+			<artifactId>standard</artifactId>
+			<version>1.1.2</version>
+		</dependency>
+		
 	</dependencies>
 	
 	<build>

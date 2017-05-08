@@ -1,18 +1,13 @@
-private final Logger logger = LoggerFactory.getLogger(xxx.class);
+http://localhost:8080/helloworld/
+http://localhost:8080/helloworld/index.jsp
 
 
-private Log logger = LogFactory.getLog(this.getClass());
-在具体方法中就可以写入日志
-logger.info("");
-logger.debug("");
-logger.warn("");
-logger.error("");
+mvn install:install0.00file  0.00Dfile=E:/frame2017/maven/fast0.00md50.002.6.1.jar  0.00DgroupId=fast0.00md5  0.00DartifactId=fast0.00md5 0.00Dversion=2.6.1 0.00Dpackaging=jar
 
+ 
+ 
 
-
-当服务启动过程中，控制台输出“要进山了，准备好布袋子”
-当点击一下“给红薯”的链接时，控制台会输出“得到第x个红薯”
-当点击一下“给钱”的链接时，控制台输出“什么时候有过钱啊，滚回家去！
-
-
-org.apache.catalina.session.StandardSessionFacade@118c75c9
+Name	Code	Comment	Data Type	Length	Precision	Primary	Foreign Key	Mandatory
+证券代码	STOCK_CODE	证券代码	VARCHAR(16)	16		FALSE	FALSE	FALSE
+公司简称	COMPANY_ABBREVIATION	公司简称	VARCHAR(64)	64		FALSE	FALSE	FALSE
+所在行业	INDUSTRY	所在行业	VARCHAR(128)	128		FALSE	FALSE	FALSE

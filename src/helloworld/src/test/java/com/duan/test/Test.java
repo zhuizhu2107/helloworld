@@ -13,6 +13,12 @@ import org.hibernate.cfg.Configuration;
  */
 public class Test {
 	
+	
+	@org.junit.Test
+	public void run20170503() {
+		
+	}
+	
 	@org.junit.Test
 	public void run20170407() {
 		String id=UUID.randomUUID().toString();

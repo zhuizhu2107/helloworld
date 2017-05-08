@@ -33,7 +33,7 @@
     </filter>  
     <filter-mapping>  
         <filter-name>myFilter</filter-name>  
-        <url-pattern>/*</url-pattern>  
+        <url-pattern>/*</url-pattern> 
     </filter-mapping>
     
 	 <!-- 应用上下文监听控制器 -->

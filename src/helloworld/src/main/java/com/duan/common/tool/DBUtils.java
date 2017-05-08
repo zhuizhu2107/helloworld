@@ -21,4 +21,8 @@ public class DBUtils {
 		return sessionFactory.getCurrentSession();
 	}
 	
+	public static Session openSession(){
+		return sessionFactory.openSession();
+	}
+	
 }
