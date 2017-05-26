@@ -172,8 +172,8 @@
 										<i class="icon-check"></i>
 									</span>
 									<div class="feature-copy">
-										<h3>Retina Ready</h3>
-										<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+										<h3><fmt:message key="index_index_content_core_feature_copy_1_title" /></h3>
+										<p><fmt:message key="index_index_content_core_feature_copy_1_content" /></p>
 									</div>
 								</div>
 
@@ -182,8 +182,8 @@
 										<i class="icon-check"></i>
 									</span>
 									<div class="feature-copy">
-										<h3>Fully Responsive</h3>
-										<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+										<h3><fmt:message key="index_index_content_core_feature_copy_2_title" /></h3>
+										<p><fmt:message key="index_index_content_core_feature_copy_2_content" /></p>
 									</div>
 								</div>
 
@@ -192,8 +192,8 @@
 										<i class="icon-check"></i>
 									</span>
 									<div class="feature-copy">
-										<h3>Ready To Use</h3>
-										<p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit.</p>
+										<h3><fmt:message key="index_index_content_core_feature_copy_3_title" /></h3>
+										<p><fmt:message key="index_index_content_core_feature_copy_3_content" /></p>
 									</div>
 								</div>
 							</div>
@@ -208,27 +208,26 @@
 										<div class="col-md-12 animate-box">
 											<div class="feature-center">
 												<span class="counter js-counter" data-from="0" data-to="2200" data-speed="5000" data-refresh-interval="50">1</span>
-												<span class="counter-label">Creativity Fuel</span>
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_1_title" /></span>
 
 											</div>
 										</div>
 										<div class="col-md-12 animate-box">
 											<div class="feature-center">
 												<span class="counter js-counter" data-from="0" data-to="97" data-speed="5000" data-refresh-interval="50">1</span>
-												<span class="counter-label">Happy Clients</span>
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_2_title" /></span>
 											</div>
 										</div>
 										<div class="col-md-12 animate-box">
 											<div class="feature-center">
 												<span class="counter js-counter" data-from="0" data-to="402" data-speed="5000" data-refresh-interval="50">1</span>
-												<span class="counter-label">Projects Done</span>
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_3_title" /></span>
 											</div>
 										</div>
 										<div class="col-md-12 animate-box">
 											<div class="feature-center">
 												<span class="counter js-counter" data-from="0" data-to="4523" data-speed="5000" data-refresh-interval="50">1</span>
-												<span class="counter-label">Hours Spent</span>
-
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_4_title" /></span>
 											</div>
 										</div>
 									</div>
