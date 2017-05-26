@@ -1,11 +1,11 @@
 package com.duan.test;
 
-import java.util.UUID;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
+
+import com.duan.common.tool.StringUtils;
 
 /**
  * 测试类
@@ -21,7 +21,7 @@ public class Test {
 	
 	@org.junit.Test
 	public void run20170407() {
-		String id=UUID.randomUUID().toString();
+		String id=StringUtils.getUUIDStr();
 		System.out.println(id);
 		System.out.println(id.length());
 	}

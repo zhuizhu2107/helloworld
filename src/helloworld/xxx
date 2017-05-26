@@ -1,13 +1,14 @@
 http://localhost:8080/helloworld/
 http://localhost:8080/helloworld/index.jsp
-
+admin123===========0192023a7bbd73250516f069df18b500      初始化密码
 
 mvn install:install0.00file  0.00Dfile=E:/frame2017/maven/fast0.00md50.002.6.1.jar  0.00DgroupId=fast0.00md5  0.00DartifactId=fast0.00md5 0.00Dversion=2.6.1 0.00Dpackaging=jar
 
- 
- 
 
-Name	Code	Comment	Data Type	Length	Precision	Primary	Foreign Key	Mandatory
-证券代码	STOCK_CODE	证券代码	VARCHAR(16)	16		FALSE	FALSE	FALSE
-公司简称	COMPANY_ABBREVIATION	公司简称	VARCHAR(64)	64		FALSE	FALSE	FALSE
-所在行业	INDUSTRY	所在行业	VARCHAR(128)	128		FALSE	FALSE	FALSE
+
+
+${ctx}pages/index/images/image_1_copy.jpg
+
+
+平台优势
+集房屋租赁、交易于一体多功能化网络平台。优质的咨询服务，及时的消息推送，完善的服务工作。让您感受不一样的房屋租赁和交易，我们崇尚客户就是上帝的服务宗旨

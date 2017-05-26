@@ -1,7 +1,6 @@
 package com.duan.common.tool;
 
 import java.util.Date;
-import java.util.UUID;
 
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -53,7 +52,7 @@ public class LogUitls implements Runnable{
 		synchronized (POINT) {
 			Session session=DBUtils.openSession();
 			Transaction transaction=session.beginTransaction();
-			sysLog.setId(UUID.randomUUID().toString());
+			sysLog.setId(StringUtils.getUUIDStr());
 			sysLog.setUserCode(user.getUserId());
 			sysLog.setUserName(user.getUserName());
 			sysLog.setClassName(className);

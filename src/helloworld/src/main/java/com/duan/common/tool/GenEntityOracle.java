@@ -409,7 +409,7 @@ public class GenEntityOracle {
      */
     public static void main(String[] args) {
     	GenEntityOracle test=new GenEntityOracle();
-    	test.genEntity("TEST_SYS_USER");
+    	test.genEntity("TEST_SYS_CONFIG");
 	}
 	
 }

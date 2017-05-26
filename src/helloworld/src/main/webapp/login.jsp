@@ -1,14 +1,19 @@
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="zh_CN"/>
 <!DOCTYPE html>
-<html lang="zh-CN" class="no-js">
+<html class="no-js">
     <head>
         <meta charset="utf-8">
-        <title>用户登陆</title>
+        <title><fmt:message key="userLogin"/></title>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="">
         <meta name="author" content="">
+
+		<!-- 网站图标 -->
+		<link href="${ctx}images/icons/favicon.ico" rel="shortcut icon" />
 
         <!-- CSS -->
         <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=PT+Sans:400,700'>
@@ -35,22 +40,22 @@
     <body>
     
         <div class="page-container">
-	            <h1>系统登陆</h1>
+	            <h1><fmt:message key="userLogin"/></h1>
 	            <form id="loginForm" method="post" class="form-horizontal">
 					<div class="form-group">
-						<label for="userName">登陆名:</label>
-						<input type="text"  name="userName"  class="username"  placeholder="请输入登陆名" title="字母、数字、下划线组成，字母开头，4-16位">
+						<label for="userName"><fmt:message key="userName"/>:</label>
+						<input type="text"  name="userName"  class="username"  placeholder="<fmt:message key="userName_placeholder"/>" title="<fmt:message key="userName_title"/>">
 				  	</div>
 	            	<div class="form-group">
-	            		<label for="password">密码:</label>
-					    <input type="password" name="password"  class="password"  placeholder="请输入登陆密码" title="字母、数字、下划线组成，字母开头，4-16位">
+	            		<label for="password"><fmt:message key="password"/>:</label>
+					    <input type="password" name="password"  class="password"  placeholder="<fmt:message key="password_placeholder"/>" title="<fmt:message key="password_title"/>">
 				  	</div>
 	                
 	                <div class="form-group">
                 		<button href="${ctx}pages/user/register.jsp"  class="btn-link" data-target="#modal" data-toggle="modal">
-							<i class="fa fa-edit ">注  册</i> 
+							<i class="fa fa-edit "><fmt:message key="register"/></i> 
 						</button>
-	                	<button  type="button" class="btn-success" onclick="loginClick();">登  陆</button>
+	                	<button  type="button" class="btn-success" onclick="loginClick();"><fmt:message key="login"/></button>
 					</div>
 	            </form>
         </div>
@@ -86,26 +91,27 @@
         		
         		var isSendRedirect="${isSendRedirect}";
         		if(isSendRedirect&&isSendRedirect=='true'){
-        			window.wxc.xcConfirm("请先进行登陆！！！","info",{title:"登陆提示"});
+        			window.wxc.xcConfirm('<fmt:message key="login_first_limit"/>',"info",{title:'<fmt:message key="login_tip"/>'});
         		}
         	});
         
+        	/**登陆点击事件**/
         	function loginClick(){
         		var userName=loginForm.userName.value;
         		var password=loginForm.password.value;
         		if(!checkUser(userName)){
-        			window.wxc.xcConfirm("用户名不符合规则","info",{title:"登陆提示"});
+        			window.wxc.xcConfirm('<fmt:message key="login_name_tip"/>',"info",{title:'<fmt:message key="login_tip"/>'});
         			return;
         		}
         		if(!checkUser(password)){
-        			window.wxc.xcConfirm("密码不符合规则","info",{title:"登陆提示"});
+        			window.wxc.xcConfirm('<fmt:message key="login_password_tip"/>',"info",{title:'<fmt:message key="login_tip"/>'});
         			return;
         		}        		
         		
         		/**密码加密过程**/
         		loginForm.password.value=md5(password);
         		
-				window.wxc.xcConfirm("确认登陆？？？", window.wxc.xcConfirm.typeEnum.confirm,{
+				window.wxc.xcConfirm('<fmt:message key="login_confirm"/>', window.wxc.xcConfirm.typeEnum.confirm,{
 					onOk:function(e){//确定事件
 						$("#loginForm").attr("action","${ctx}user/login.do");
 		        		$("#loginForm").submit();
@@ -113,11 +119,6 @@
 				});
 				
         	}
-        	
-        	/**注册事件**/
-        	function registerClick(){
-        		 alert("成功！");
-        	} 
         
         	//回车事件
         	document.onkeydown=function(event){
@@ -132,8 +133,8 @@
             	$('body').on('hidden', '.modal', function () {
             	      $(this).removeData('modal');
             	});
-            };           
-			
+            };        
+            
         </script>
     </body>
 

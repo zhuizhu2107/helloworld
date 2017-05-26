@@ -43,6 +43,7 @@ public class MySessionListener implements HttpSessionListener{
 		/**把session从应用上下文中移除**/
 		HttpSession session=event.getSession();
 		ServletUtils.removeUserOnlinesMap(session);
+		ServletUtils.removerUserOfMySessions(session);
 	}
 
 }

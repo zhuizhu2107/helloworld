@@ -1,7 +1,12 @@
 package com.duan.common.tool;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
@@ -9,6 +14,8 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.web.context.ContextLoader;
 import org.springframework.web.context.WebApplicationContext;
+
+import com.duan.bean.User;
 
 /**
  * @author ddp ServletUtils 工具类
@@ -71,9 +78,42 @@ public class ServletUtils {
 	}
 	
 	/**
-	 *  移除在内存用户管理中的指定HttpSession
+	 *  移除在内存用户管理中（“mySessions”）的指定HttpSession
+	 *  同时执行多个移除操作的话要一个一个的进行，保证每一个都是独立执行完成的
 	 */
-	public static void removeUserOnlinesMap(HttpSession session){
+	public synchronized static void removerUserOfMySessions(HttpSession session) {
+		ServletContext servletContext=getServletContext();
+		@SuppressWarnings("unchecked")
+		Set<HttpSession> set=(Set<HttpSession>) servletContext.getAttribute("mySessions");
+		if(set!=null){
+			Iterator<HttpSession> it = set.iterator();//先迭代出来  
+			List<HttpSession> list=new ArrayList<HttpSession>();//要删除的数据
+			
+	        while(it.hasNext()){//遍历  
+	        	HttpSession currentSession=it.next(); 
+	        	if(currentSession==session){
+	        		list.add(currentSession);
+	        	}
+	        }
+	        
+	        for (int i = 0; i < list.size(); i++) {
+	        	set.remove(session);
+			}
+		}else{
+			set=new HashSet<HttpSession>();
+		}
+		
+		//重新加载
+		servletContext.setAttribute("mySessions", set);
+		
+	}
+	
+	
+	/**
+	 *  移除在内存用户管理中（“userOnlines”）的指定HttpSession
+	 *  同时执行多个移除操作的话要一个一个的进行，保证每一个都是独立执行完成的
+	 */
+	public synchronized static void removeUserOnlinesMap(HttpSession session){
 		ServletContext servletContext=getServletContext();
 		@SuppressWarnings("unchecked")
 		Map<String,HttpSession> map=(Map<String,HttpSession>) servletContext.getAttribute("userOnlines");
@@ -175,4 +215,13 @@ public class ServletUtils {
 		String callJavaScript="callback4Page('"+flag+"','"+content+"','"+type+"','"+tile+"');";
 		return callJavaScript;
 	}
+	
+	/***
+	 * 获取当前的用户对象信息
+	 */
+	public static User getCurrentUser(HttpSession session){
+		User user=(User) session.getAttribute("currentUser");
+		return user;
+	}
+	
 }

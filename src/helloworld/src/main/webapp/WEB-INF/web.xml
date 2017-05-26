@@ -107,6 +107,13 @@
 		<url-pattern>*.do</url-pattern>
 	</filter-mapping>
 	
+	<!-- 自定义参数和其他常用参数添加                                             开始部分-->
+	<context-param>
+		<param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
+		<param-value>messages</param-value>
+	</context-param>
+	<!-- 自定义参数和其他常用参数添加                                             结束部分-->
+	
 	<!-- 测试servlet -->
     <servlet>
         <servlet-name>helloServlet</servlet-name>

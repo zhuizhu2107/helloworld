@@ -51,7 +51,7 @@ public class MyFilter implements Filter{
 		/**只处理两类路径，*.do,*.jsp **/
 		if(url.toLowerCase().endsWith(".do")||url.toLowerCase().endsWith(".jsp")){
 			String[] nonIntercept = { basePath, basePath + "login.jsp", basePath + "user/login.do",
-												  basePath + "pages/user/register.jsp" };
+												  basePath + "pages/user/register.jsp",basePath + "user/register.do",basePath + "user/checkUserNameExists.do"};
 			
 			for (int i = 0; i < nonIntercept.length; i++) {
 				if(nonIntercept[i].equals(url)){
