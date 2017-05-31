@@ -1,4 +1,5 @@
 http://localhost:8080/helloworld/
+http://127.0.0.1:8080/helloworld/
 http://localhost:8080/helloworld/index.jsp
 admin123===========0192023a7bbd73250516f069df18b500      初始化密码
 
@@ -10,3 +11,366 @@ mvn install:install0.00file  0.00Dfile=E:/frame2017/maven/fast0.00md50.002.6.1.j
 ${ctx}pages/index/images/image_1_copy.jpg
 
 
+
+
+
+
+	<div class="fh5co-loader"></div>
+	
+	<div id="page">
+	<nav class="fh5co-nav" role="navigation">
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-2">
+					<div id="fh5co-logo"><a href="${ctx}index.jsp"><img alt="logo" src="${ctx}pages/index/images/logo.gif"></a></div>
+				</div>
+				<div class="col-xs-10 text-right menu-1">
+					<ul>
+						<li class="active"><a href="${ctx}index.jsp"><fmt:message key="index_index" /></a></li>
+						<li><a href="about.html"><fmt:message key="index_about_us" /></a></li>
+						<li class="has-dropdown">
+							<a href="services.html"><fmt:message key="index_services" /></a>
+							<ul class="dropdown">
+								<li><a href="#">Web Design</a></li>
+								<li><a href="#">eCommerce</a></li>
+								<li><a href="#">Branding</a></li>
+								<li><a href="#">API</a></li>
+							</ul>
+						</li>
+						<li><a href="contact.html"><fmt:message key="index_contract" /></a></li>
+					</ul>
+				</div>
+			</div>
+			
+		</div>
+	</nav>
+
+	<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_1.jpg);">
+		<div class="overlay"></div>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-10 col-md-offset-1 text-center">
+					<div class="display-t">
+						<div class="display-tc animate-box" data-animate-effect="fadeIn">
+							<h1><fmt:message key="index_index_header_title" /></h1>
+							<h2><fmt:message key="index_index_header_content" /> </h2>
+							<p><a href="#" class="btn btn-default"><fmt:message key="index_index_header_mark" /></a></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</header>
+    <div class="copyrights">Collect from <a href="###" ><fmt:message key="index_index_header_title" /></a></div>
+	
+	<div class="container">
+		<div class="row">
+			<div id="fh5co-section">
+				<div class="col-nineth">
+					<div class="row">
+						<div class="col-third">
+							<div class="col-md-12">
+								<span class="icon">
+									<i class="icon-second-house"></i>
+								</span>
+								<div class="desc">
+									<h3><fmt:message key="index_index_content_second_house_title" /></h3>
+									<p><fmt:message key="index_index_content_second_house_content" /></p>
+									<p><a href="#" class="btn btn-primary"><fmt:message key="index_index_content_link" /></a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-third">
+							<div class="col-md-12">
+								<span class="icon">
+									<i class="icon-new-house"></i>
+								</span>
+								<div class="desc">
+									<h3><fmt:message key="index_index_content_new_house_title" /></h3>
+									<p><fmt:message key="index_index_content_new_house_content" /></p>
+									<p><a href="#" class="btn btn-primary"><fmt:message key="index_index_content_link" /></a></p>
+								</div>
+							</div>
+						</div>
+						<div class="col-third">
+							<div class="col-md-12">
+								<span class="icon">
+									<i class="icon-evaluate-house"></i>
+								</span>
+								<div class="desc">
+									<h3><fmt:message key="index_index_content_evaluate_house_title" /></h3>
+									<p><fmt:message key="index_index_content_evaluate_house_content" /></p>
+									<p><a href="#" class="btn btn-primary"><fmt:message key="index_index_content_link" /></a></p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-forth fh5co-video fh5co-bg" style="background-image: url(images/image_1.jpg)">
+					<a href="${ctx}pages/index/images/image_1_copy.jpg" class="popup-vimeo"><i class="icon-video2"></i></a>
+						<div class="overlay"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+    
+
+	
+	<div class="fh5co-bg-section">
+		<div class="container">
+			<div class="row">
+				<div id="fh5co-features-2">
+					<div class="col-feature-9">
+						<div class="row">
+							<div class="col-md-12 fh5co-heading animate-box">
+								<h2><fmt:message key="index_index_content_core_feature_title" /></h2>
+								<p><fmt:message key="index_index_content_core_feature_content" /></p>
+							</div>
+						</div>
+						<div class="row">
+							<div class="col-md-7 col-sm-7 col-md-pull-2 col-sm-pull-2 animate-box" data-animate-effect="fadeInRight">
+								<div class="feature-image">
+									<img src="images/work_1.png" alt="work">
+								</div>
+							</div>
+							<div class="col-md-5 col-sm-5">
+								<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+									<span class="icon">
+										<i class="icon-check"></i>
+									</span>
+									<div class="feature-copy">
+										<h3><fmt:message key="index_index_content_core_feature_copy_1_title" /></h3>
+										<p><fmt:message key="index_index_content_core_feature_copy_1_content" /></p>
+									</div>
+								</div>
+
+								<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+									<span class="icon">
+										<i class="icon-check"></i>
+									</span>
+									<div class="feature-copy">
+										<h3><fmt:message key="index_index_content_core_feature_copy_2_title" /></h3>
+										<p><fmt:message key="index_index_content_core_feature_copy_2_content" /></p>
+									</div>
+								</div>
+
+								<div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+									<span class="icon">
+										<i class="icon-check"></i>
+									</span>
+									<div class="feature-copy">
+										<h3><fmt:message key="index_index_content_core_feature_copy_3_title" /></h3>
+										<p><fmt:message key="index_index_content_core_feature_copy_3_content" /></p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-feature-3">
+						<div id="fh5co-counter" class="fh5co-bg fh5co-counter">
+							<div class="row">
+								<div class="display-t">
+									<div class="display-tc">
+										<div class="col-md-12 animate-box">
+											<div class="feature-center">
+												<span class="counter js-counter" data-from="0" data-to="2200" data-speed="5000" data-refresh-interval="50">1</span>
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_1_title" /></span>
+
+											</div>
+										</div>
+										<div class="col-md-12 animate-box">
+											<div class="feature-center">
+												<span class="counter js-counter" data-from="0" data-to="97" data-speed="5000" data-refresh-interval="50">1</span>
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_2_title" /></span>
+											</div>
+										</div>
+										<div class="col-md-12 animate-box">
+											<div class="feature-center">
+												<span class="counter js-counter" data-from="0" data-to="402" data-speed="5000" data-refresh-interval="50">1</span>
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_3_title" /></span>
+											</div>
+										</div>
+										<div class="col-md-12 animate-box">
+											<div class="feature-center">
+												<span class="counter js-counter" data-from="0" data-to="4523" data-speed="5000" data-refresh-interval="50">1</span>
+												<span class="counter-label"><fmt:message key="index_index_content_core_feature_center_4_title" /></span>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+	<div id="fh5co-portfolio">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2><fmt:message key="index_index_content_real_project_part_1_title" /></h2>
+					<p><fmt:message key="index_index_content_real_project_part_1_content" /></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="project">
+					<div class="col-md-8 col-md-push-5 animate-box" data-animate-effect="fadeInLeft">
+						<img class="img-responsive" src="images/work_2.png" alt="real Project">
+					</div>
+					<div class="col-md-4 col-md-pull-8 animate-box" data-animate-effect="fadeInRight">
+						<div class="mt">
+							<h3><fmt:message key="index_index_content_real_project_part_2_title" /></h3>
+							<p><fmt:message key="index_index_content_real_project_part_2_sub_1_title" /></p>
+							<ul class="list-nav">
+								<li><i class="icon-check"></i><fmt:message key="index_index_content_real_project_part_2_sub_1_content_1" /></li>
+								<li><i class="icon-check"></i><fmt:message key="index_index_content_real_project_part_2_sub_1_content_2" /></li>
+								<li><i class="icon-check"></i><fmt:message key="index_index_content_real_project_part_2_sub_1_content_3" /></li>
+								<li><i class="icon-check"></i><fmt:message key="index_index_content_real_project_part_2_sub_1_content_4" /></li>
+								<li><i class="icon-check"></i><fmt:message key="index_index_content_real_project_part_2_sub_1_content_5" /></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				<div class="project">
+					<div class="col-md-8 col-md-pull-1 animate-box" data-animate-effect="fadeInLeft">
+						<img class="img-responsive" src="images/work_3.png" alt="work">
+					</div>
+					<div class="col-md-4 animate-box" data-animate-effect="fadeInRight">
+						<div class="mt">
+							<div>
+								<h4><i class="icon-user"></i><fmt:message key="index_index_content_real_project_part_2_title" /></h4>
+								<p><fmt:message key="index_index_content_real_project_part_2_sub_2_title" /></p>
+							</div>
+							<div>
+								<h4><i class="icon-video2"></i><fmt:message key="index_index_content_real_project_part_2_title" /></h4>
+								<p><fmt:message key="index_index_content_real_project_part_2_sub_3_title" /></p>
+							</div>
+							<div>
+								<h4><i class="icon-shield"></i><fmt:message key="index_index_content_real_project_part_2_title" /></h4>
+								<p><fmt:message key="index_index_content_real_project_part_2_sub_4_title" /></p>
+							</div>
+						</div>
+					</div>	
+				</div>
+				
+			</div>
+		</div>
+	</div>
+
+	<div id="fh5co-testimonial">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Testimonial</h2>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-4 animate-box">
+					<div class="testimony">
+						<blockquote>
+							&ldquo;Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius&rdquo;
+						</blockquote>
+						<p class="author"><cite>John Doe</cite></p>
+					</div>
+				</div>
+				<div class="col-md-4 animate-box">
+					<div class="testimony">
+						<blockquote>
+							&ldquo;Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius&rdquo;
+						</blockquote>
+						<p class="author"><cite>Rob Smith</cite></p>
+					</div>
+				</div>
+				<div class="col-md-4 animate-box">
+					<div class="testimony">
+						<blockquote>
+							&ldquo;Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius&rdquo;
+						</blockquote>
+						<p class="author"><cite>Jane Doe</cite></p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<div id="fh5co-started">
+		<div class="container">
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+					<h2>Newsletter</h2>
+					<p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+				</div>
+			</div>
+			<div class="row animate-box">
+				<div class="col-md-8 col-md-offset-2">
+					<form class="form-inline">
+						<div class="col-md-6 col-sm-6">
+							<div class="form-group">
+								<label for="email" class="sr-only">Email</label>
+								<input type="email" class="form-control" id="email" placeholder="Email">
+							</div>
+						</div>
+						<div class="col-md-6 col-sm-6">
+							<button type="submit" class="btn btn-default btn-block">Subscribe</button>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<footer id="fh5co-footer" role="contentinfo">
+		<div class="container">
+			<div class="row row-pb-md">
+				<div class="col-md-4 fh5co-widget">
+					<h3><fmt:message key="index_index_footer_title" /></h3>
+					<p><fmt:message key="index_index_footer_content" /></p>
+					<p><a href="#"><fmt:message key="index_index_footer_link" /></a></p>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<ul class="fh5co-footer-links">
+						<li><a href="#">About</a></li>
+						<li><a href="#">Help</a></li>
+					</ul>
+				</div>
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Services</a></li>
+						<li><a href="#">API</a></li>
+					</ul>
+				</div>				
+				<div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1">
+					<ul class="fh5co-footer-links">
+						<li><a href="#">Contact</a></li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="row copyright">
+				<div class="col-md-12 text-center">
+					<p>
+						<small class="block"><fmt:message key="index_index_footer_rights" /></small> 
+					</p>
+					<p>
+						<ul class="fh5co-social-icons">
+							<li><a href="#"><i class="icon-twitter"></i></a></li>
+							<li><a href="#"><i class="icon-facebook"></i></a></li>
+							<li><a href="#"><i class="icon-linkedin"></i></a></li>
+							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						</ul>
+					</p>
+				</div>
+			</div>
+
+		</div>
+	</footer>
+	</div>
+
+	<div class="gototop js-top">
+		<a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+	</div>

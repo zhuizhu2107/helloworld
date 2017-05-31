@@ -24,15 +24,28 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-new-house:before {
-  content: "\e900";
-  color: #0f0;
-}
-.icon-second-house:before {
-  content: "\e901";
+
+.icon-icon-arrow-up:before {
+  content: "\e905";
   color: #0f0;
 }
 .icon-evaluate-house:before {
+  content: "\e900";
+  color: #0f0;
+}
+.icon-icon-check:before {
+  content: "\e901";
+  color: #0f0;
+}
+.icon-icon-check2:before {
   content: "\e902";
+  color: #fff;
+}
+.icon-new-house:before {
+  content: "\e903";
+  color: #0f0;
+}
+.icon-second-house:before {
+  content: "\e904";
   color: #0f0;
 }

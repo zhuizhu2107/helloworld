@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.ResourceBundle;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -43,6 +44,9 @@ public class UserControllerImpl implements UserController{
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	@Override
 	public String login(HttpServletRequest request,HttpServletResponse response,User user,RedirectAttributes redirectAttributes) {
+		/**实现国际化语言配置**/
+		ResourceBundle myResource=ResourceBundle.getBundle("messages", request.getLocale());
+		
 		/**用户信息校验**/
 		String sqlWhere="and USER_NAME=? and PASSWORD=? ";
 		Object[] values=new Object[]{user.getUserName(),user.getPassword()};
@@ -50,16 +54,16 @@ public class UserControllerImpl implements UserController{
 		User user_db=userService.getEntityBySqlWhere("TEST_SYS_USER", sqlWhere,values,types);
 		
 		if(user_db==null){
-			redirectAttributes.addFlashAttribute("callJavaScript", ServletUtils.callJavaScript(request.getSession(),"failed", "用户名或密码错误，请核对后登陆","info", "登陆提示"));
+			redirectAttributes.addFlashAttribute("callJavaScript", ServletUtils.callJavaScript(request.getSession(),"failed", myResource.getString("login_name_or_pwd_tip"),"info", myResource.getString("login_tip")));
 			return "redirect:/";
 		}
 		
 		//控制台日志信息
-		logger.info("用户"+user.getUserName()+"登陆");
+		logger.info(myResource.getString("user")+user.getUserName()+myResource.getString("login_0"));
 		//入库日志信息
 		ThreadUtils.loginLogThread(user_db, this.getClass().getName(),
 				"public String login(HttpServletRequest request,HttpServletResponse response,User user)", "info",
-				"用户" + user.getUserName() + "登陆成功！！！");
+				myResource.getString("user") + user.getUserName() + myResource.getString("loginSuccess"));
 		
 		/**用户登陆数量统计**/
 		HttpSession session=request.getSession();
@@ -77,10 +81,13 @@ public class UserControllerImpl implements UserController{
 	@ResponseBody
 	@Override
 	public synchronized Map<String, Object> register(HttpServletRequest request, HttpServletResponse response, User user,RedirectAttributes redirectAttributes) {
+		/**实现国际化语言配置**/
+		ResourceBundle myResource=ResourceBundle.getBundle("messages", request.getLocale());
+		
 		Map<String, Object> map = new HashMap<String, Object>(); 
 		
 		//控制台日志信息
-		logger.info("用户"+user.getUserName()+"注册信息填写");
+		logger.info(myResource.getString("user")+user.getUserName()+myResource.getString("registerMsg"));
 		
 		/**数据处理加工过程**/
 		Date date=new Date();
@@ -97,7 +104,7 @@ public class UserControllerImpl implements UserController{
 			//入库日志信息
 			ThreadUtils.loginLogThread(user, this.getClass().getName(),
 					"public Map<String, Object> register(HttpServletRequest request, HttpServletResponse response, User user,RedirectAttributes redirectAttributes)", "info",
-					"用户" + user.getUserName() + "注册成功！！！");				
+					myResource.getString("user")  + user.getUserName() + myResource.getString("registerSuccess"));				
 		}else{
 			map.put("flag", "fail"); 
 		}

@@ -38,7 +38,20 @@ session机制，只要访问了，机器就会产生一个session，并且以JSE
 一、service层的统一封装计划
 二、对登陆首页的编写工作
 三、登陆时如何把用户信息填充到session中去
+四、实现国际化语言的应用
+前台：
+a)引入这几个标签
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<fmt:setLocale value="zh_CN"
 
+b)应用这个模式
+<fmt:message key="register"/>
 
-
-???url重写技术的应用
+后台：
+a)引入对象
+	/**实现国际化语言配置**/
+	ResourceBundle myResource=ResourceBundle.getBundle("messages", request.getLocale());
+b)实际应用
+	myResource.getString(key)	 key是可变的
+		
